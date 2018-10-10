@@ -78,4 +78,31 @@ static inline int SSL_EVP_digestVerifyFinal_wrapper(EVP_MD_CTX *ctx, const unsig
 
 }
 
+static inline long OpenSSL_SSL_CTX_set_mode(SSL_CTX *ctx, long mode) {
+
+        return SSL_CTX_set_mode(ctx, mode);
+
+}
+
+
+
+static inline void OpenSSL_SSL_init(void) {
+        SSL_library_init();
+
+        SSL_load_error_strings();
+
+        OPENSSL_config(NULL);
+
+        OPENSSL_add_all_algorithms_conf();
+}
+
+
+
+static inline long OpenSSL_SSL_CTX_set_options(SSL_CTX *ctx, long options) {
+
+        return SSL_CTX_set_options(ctx, options);
+
+}
+
+
 #endif
